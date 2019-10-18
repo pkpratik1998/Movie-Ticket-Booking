@@ -1,0 +1,137 @@
+﻿<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<header class="header">
+		<table>
+		<tr><th><img src="logo1.png" height="100" width="150"></th>
+		<th><h1 id="sitename">Show For Now</h1></th>
+		<th style="padding-top:18px;padding-left:50px"><form id="searchbox" name="searchbox">
+			<input type="search" id="sbox" name="search" placeholder="Search Movies" />
+			</form>
+		</th>
+		<th>
+			<button class="button button1" name="submit" onclick="searchMovie()">Search</button>
+		</th>
+		<th><a href="login.html"><button class="button button1" name="submit">Login</button></a></th>	
+		</tr>
+		</table>
+</header>
+<nav class="navbg">
+		<table>
+			<tr >
+				<th><a class="navtext" href="index.html">Home</a></th>
+				<th><a class="navtext" href="Movies.html">Movies</a></th>
+			</tr>
+		</table>
+</nav>
+<br>
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <a href="infinity war.html"><img src="https://in.bmscdn.com/showcaseimage/eventimage/avengers-infinity-war-re-release-hindi-24-09-2018-12-15-29-388.jpg" style="width:100%" height="300"></a>
+  <div class="text">book now</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <a href="venom.html"><img src="https://in.bmscdn.com/showcaseimage/eventimage/venom-05-10-2018-11-06-25-929.jpg" style="width:100%" height="300"></a>
+  <div class="text">book now</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <a href="jonhy english.html"><img src="https://in.bmscdn.com/showcaseimage/eventimage/johnny-english-strikes-again-25-09-2018-03-45-39-957.jpg" style="width:100%" height="300"></a>
+  <div class="text">book now</div>
+</div>
+
+</div>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+<br>
+<main>
+<marquee behavior="scroll" scrollamount="30" hspace="10%" onmouseover="this.stop()" onmouseout="this.start()">
+
+<a href="venom.html"><img id="id1" src="https://in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/venom-et00069122-12-01-2018-12-51-14.jpg"  /></a>
+<a href="boys2.html"><img id="id1" src="https://in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/boyz-2-et00083012-03-09-2018-12-14-02.jpg"  /></a>
+<a href="nun.html"><img id="id1" src="https://in.bmscdn.com/iedb/movies/images/website/poster/large/the-nun-et00060869-11-08-2017-12-27-31.jpg" /></a>
+<a href="stree.html"><img id="id1" src="https://in.bmscdn.com/iedb/movies/images/website/poster/large/stree-hindi-et00069127-12-01-2018-01-37-29.jpg" /></a>
+<a href="batti gul meter chalu.html"><img id="id1" src="https://in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/batti-gul-meter-chalu-et00065101-13-11-2017-12-01-57.jpg"  /></a>
+<a href="jonhy english.html"><img id="id1" src="https://in.bmscdn.com/iedb/movies/images/website/poster/large/johnny-english-3-et00072464-13-03-2018-02-29-58.jpg"  /></a>
+
+
+</marquee>
+<div style="height:800px">
+</div>
+</main>
+<footer class="flex-rw">
+  
+  
+  <section class="footer-social-section flex-rw">
+      <span class="footer-social-overlap footer-social-connect">
+      CONNECT <span class="footer-social-small">with</span> US
+      </span>
+      <span class="footer-social-overlap footer-social-icons-wrapper">
+      <a href="https://www.pinterest.com" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest" style="color:white"></i></a>
+      <a href="https://www.facebook.com" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook" style="color:white"></i></a>
+      <a href="https://twitter.com" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter" style="color:white"></i></a>
+      <a href="http://instagram.com" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram" aria-hidden="true" style="color:white"></i></a>
+      <a href="https://www.youtube.com" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube" style="color:white"></i></a>
+      <a href="https://plus.google.com" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus" style="color:white"></i></a>
+      </span>
+  </section>
+  <section class="footer-bottom-section flex-rw">
+<div class="footer-bottom-wrapper">   
+<i class="fa fa-copyright" role="copyright">
+ 
+</i> 2018 Show For Now in <address class="footer-address" role="company address">Pune, INDIA</address><span class="footer-bottom-rights"> - All Rights Reserved - </span>
+    </div>
+    <div class="footer-bottom-wrapper">
+    <a href="/terms-of-use.html" class="generic-anchor" rel="nofollow">Terms</a> | <a href="/privacy-policy.html" class="generic-anchor" rel="nofollow">Privacy</a>
+      </div>
+  </section>
+</footer>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+	
+	
+}
+function searchMovie()
+	{
+		with(document.forms.searchbox)
+		{
+			if(search.value=="jalebi")
+			{
+				window.location.href="jalebi.html"
+			}
+		}
+	}
+</script>
+</body>
+</html>

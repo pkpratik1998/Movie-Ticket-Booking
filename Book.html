@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Movie Ticket Booking Widget Flat Responsive Widget Template :: w3layouts</title>
+<!-- for-mobile-apps -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Movie Ticket Booking Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<!-- //for-mobile-apps -->
+<link href='//fonts.googleapis.com/css?family=Kotta+One' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles.css">
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.seat-charts.js"></script>
+</head>
+<body>
+<header class="header">
+		<table>
+		<tr><th><img src="logo1.png" height="100" width="150"></th>
+		<th><h1 id="sitename">Show For Now</h1></th>
+		<th style="padding-top:18px;padding-left:50px"><form id="searchbox">
+			<input type="search" id="sbox" placeholder="Search Movies" />
+			</form>
+		</th>
+		<th>
+			<button class="button button1" name="submit" onclick="Submit()">Search</button>
+		</th>
+		<th><a href="login.html"><button class="button button1" name="submit">Login</button></a></th>
+		</tr>
+		</table>
+</header>
+<nav class="navbg">
+		<table>
+			<tr >
+				<th><a class="navtext" href="index.html">Home</a></th>
+				<th><a class="navtext" href="movies.html">Movies</a></th>
+			</tr>
+		</table>
+</nav>
+<div class="content" style="padding-top:100px">
+	<h1>Movie Ticket Booking </h1>
+	<div class="main">
+		<h2>Multiplex Theatre Showing Screen 1</h2>
+		<div class="demo">
+			<div id="seat-map">
+				<div class="front">SCREEN</div>					
+			</div>
+			<div class="booking-details">
+				<ul class="book-left">
+					
+					<li>Tickets</li>
+					<li>Total</li>
+					<li>Seats :</li>
+				</ul>
+				<ul class="book-right">
+					<li>: <span id="counter">0</span></li>
+					<li>: <b><i>Rs</i><span id="total">0</span></b></li>
+				</ul>
+				<div class="clear"></div>
+				<ul id="selected-seats" class="scrollbar scrollbar1"></ul>
+			
+						
+				<button class="checkout-button" onclick="msg()">Book Now</button>	
+				<div id="legend"></div>
+			</div>
+			<div style="clear:both"></div>
+	    </div>
+				
+			<script type="text/javascript">
+			function msg()
+			{
+				alert('Your Tickets Has Been Booked...')
+			}
+				var price = 100; //price
+				$(document).ready(function() {
+					var $cart = $('#selected-seats'), //Sitting Area
+					$counter = $('#counter'), //Votes
+					$total = $('#total'); //Total money
+					
+					var sc = $('#seat-map').seatCharts({
+						map: [  //Seating chart
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'__________',
+							'aaaaaaaa__',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'__aaaaaa__'
+						],
+						naming : {
+							top : false,
+							getLabel : function (character, row, column) {
+								return column;
+							}
+						},
+						legend : { //Definition legend
+							node : $('#legend'),
+							items : [
+								[ 'a', 'available',   'Available' ],
+								[ 'a', 'unavailable', 'Sold'],
+								[ 'a', 'selected', 'Selected']
+							]					
+						},
+						click: function () { //Click event
+							if (this.status() == 'available') { //optional seat
+								$('<li>Row'+(this.settings.row+1)+' Seat'+this.settings.label+'</li>')
+									.attr('id', 'cart-item-'+this.settings.id)
+									.data('seatId', this.settings.id)
+									.appendTo($cart);
+
+								$counter.text(sc.find('selected').length+1);
+								$total.text(recalculateTotal(sc)+price);
+											
+								return 'selected';
+							} else if (this.status() == 'selected') { //Checked
+									//Update Number
+									$counter.text(sc.find('selected').length-1);
+									//update totalnum
+									$total.text(recalculateTotal(sc)-price);
+										
+									//Delete reservation
+									$('#cart-item-'+this.settings.id).remove();
+									//optional
+									return 'available';
+							} else if (this.status() == 'unavailable') { //sold
+								return 'unavailable';
+							} else {
+								return this.style();
+							}
+						}
+					});
+					//sold seat
+					sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('unavailable');
+						
+				});
+				//sum total money
+				function recalculateTotal(sc) {
+					var total = 0;
+					sc.find('selected').each(function () {
+						total += price;
+					});
+							
+					return total;
+				}
+			</script>
+	</div>
+	<footer class="flex-rw">
+  <section class="footer-social-section flex-rw">
+      <span class="footer-social-overlap footer-social-connect">
+      CONNECT <span class="footer-social-small">with</span> US
+      </span>
+      <span class="footer-social-overlap footer-social-icons-wrapper">
+      <a href="https://www.pinterest.com" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest" style="color:white"></i></a>
+      <a href="https://www.facebook.com" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook" style="color:white"></i></a>
+      <a href="https://twitter.com" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter" style="color:white"></i></a>
+      <a href="http://instagram.com" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram" aria-hidden="true" style="color:white"></i></a>
+      <a href="https://www.youtube.com" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube" style="color:white"></i></a>
+      <a href="https://plus.google.com" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus" style="color:white"></i></a>
+      </span>
+  </section>
+  <section class="footer-bottom-section flex-rw">
+<div class="footer-bottom-wrapper">   
+<i class="fa fa-copyright" role="copyright">
+ 
+</i> 2018 Show For Now in <address class="footer-address" role="company address">Pune, INDIA</address><span class="footer-bottom-rights"> - All Rights Reserved - </span>
+    </div>
+    <div class="footer-bottom-wrapper">
+    <a href="/terms-of-use.html" class="generic-anchor" rel="nofollow">Terms</a> | <a href="/privacy-policy.html" class="generic-anchor" rel="nofollow">Privacy</a>
+      </div>
+  </section>
+</footer>
+</div>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
